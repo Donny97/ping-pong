@@ -1,2 +1,3 @@
-# ping-pong
-A simple Ping Pong game using HTML, CSS and jquery.
+# pingpong-2-player
+
+This is a 2 player ping-pong game created using HTML, CSS and jQuery.
