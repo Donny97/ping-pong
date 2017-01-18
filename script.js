@@ -1,4 +1,4 @@
-$(function () {
+$(function() {
 
     var anim_id;
 
@@ -9,9 +9,9 @@ $(function () {
     var pole_1 = $('#pole_1');
     var pole_2 = $('#pole_2');
     var winner = $('#winner');
-//    var restart_btn = $('#restart_btn');
+    //    var restart_btn = $('#restart_btn');
     var pause_btn = $('#pause_btn');
-//    var continue_btn = $("#continue_btn");
+    //    var continue_btn = $("#continue_btn");
 
     //saving some initial setup
     var container_width = parseInt(container.width());
@@ -37,8 +37,8 @@ $(function () {
     var bird_go = 'down';
     var bird_right_left = 'right';
 
-    var top_angle = 6; // 7 - 14 ??? 
-    var right_left_angle = 0; //0 - 20 
+    var top_angle = 6; // 7 - 14 ???
+    var right_left_angle = 0; //0 - 20
 
     var move_right = false;
     var move_left = false;
@@ -139,7 +139,7 @@ $(function () {
 
     //Player 1 controls
 
-    $(document).on('keydown', function (e) {
+    $(document).on('keydown', function(e) {
         var key = e.keyCode;
         if (key === 37 && move_left === false && game_over === false && game_pause === false) {
             move_left = requestAnimationFrame(left);
@@ -154,7 +154,7 @@ $(function () {
 
 
 
-    $(document).on('keyup', function (e) {
+    $(document).on('keyup', function(e) {
         var key = e.keyCode;
         if (key === 37 && game_over === false && game_pause === false) {
             cancelAnimationFrame(move_left);
@@ -192,16 +192,16 @@ $(function () {
     }
 
 
-    pause_btn.click(function () {
-        
-        if(game_pause === false){
-        game_pause=true;
-        
+    pause_btn.click(function() {
+
+        if (game_pause === false) {
+            game_pause = true;
+            this.innerHTML = "RESUME";
+        } else {
+            game_pause = false;
+            this.innerHTML = "PAUSE";
+            anim_id = requestAnimationFrame(repeat);
         }
-       else{
-            game_pause=false;
-           anim_id = requestAnimationFrame(repeat);
-       }
         console.log('test');
     });
 
@@ -219,14 +219,14 @@ $(function () {
         $('#continue_btn').focus();
     }
 
-    $(document).on('click', '#restart_btn', function () {       
+    $(document).on('click', '#restart_btn', function() {
         location.reload();
     });
-    
-    $(document).on('click', '#continue_btn', function () {       
-        
+
+    $(document).on('click', '#continue_btn', function() {
+
     });
-    
+
     function collision($div1, $div2) {
         var x1 = $div1.offset().left;
         var y1 = $div1.offset().top;
